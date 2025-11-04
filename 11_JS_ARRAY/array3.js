@@ -14,9 +14,9 @@ const fruits = [
 console.log(fruits.join(" "));
 
 const numArray = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9, 10],
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9, 10],
 ];
 // The flat() method is used to flatten the array i.e. it merges all the given array and reduces all the nesting present in it.
 
