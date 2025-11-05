@@ -46,7 +46,8 @@ console.log("alphabet sort ", alpha.sort());
 console.log("number sort " + num.sort())// default sort is ascending order
 console.log("descending order ", num.sort((a, b) => b - a));
 
-// find & findIndex - This method finds out the first value which passes the user-specified conditions and findIndex() method finds out the first index value which passes the user-specified conditions.
+// find & findIndex - This method finds out the first value which passes the
+//  user-specified conditions and findIndex() method finds out the first index value which passes the user-specified conditions.
 num = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 let result = num.find((values) => values > 7);
