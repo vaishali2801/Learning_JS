@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background: url(./closeup-business-man-checking-tax-invoice-paper_53876-14800.avif);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-image: linear-gradient(#8CE4FF, #D6F4ED, #87BAC3);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 380px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1d4ed8;
+        }
+
+        .balance-box {
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .balance-box h2 {
+            margin: 5px 0;
+        }
+
+        .input-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input,
+        select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        input,
+        select :hover {
+            border: 1px solid #1A3D64;
+
+        }
+
+        button {
+            background: #1A3D64;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #1e40af;
+        }
+
+        .list {
+            margin-top: 20px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f9f9f9;
+            margin-bottom: 8px;
+            padding: 10px;
+            border-radius: 8px;
+            border-left: 5px solid;
+        }
+
+        .income {
+            border-color: #16a34a;
+            color: #15803d;
+        }
+
+        .expense {
+            border-color: #dc2626;
+            color: #b91c1c;
+        }
+
+        .summary {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-top: 10px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .delete-btn {
+            background: #ef4444;
+            border: none;
+            color: white;
+            padding: 5px 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .delete-btn:hover {
+            background: #b91c1c;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>💰 Expense Tracker</h1>
+
+        <div class="balance-box">
+            <h2 id="balance">Balance: ₹0</h2>
+            <div class="summary">
+                <span id="totalIncome">Income: ₹0</span>
+                <span id="totalExpense">Expense: ₹0</span>
+                <span id="totalAmount">Total Transactions: ₹0</span>
+            </div>
+        </div>
+
+        <div class="input-section">
+            <input type="text" id="desc" placeholder="Enter description">
+            <input type="number" id="amount" placeholder="Enter amount">
+            <select id="type">
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+            </select>
+            <button onclick="addTransaction()">Add Transaction</button>
+        </div>
+
+        <div class="list" id="list"></div>
+    </div>
+
+    <script>
+        let transactions = [];
+
+        function addTransaction() {
+            const desc = document.getElementById("desc").value.trim();//the trim() method removes extra spaces from the start and end of a string.
+            const amount = parseFloat(document.getElementById("amount").value);
+            const type = document.getElementById("type").value;
+            if (!desc || isNaN(amount)) {
+                alert("Please enter valid details!");
+                return;
+            }
+            const transaction = { id: Date.now(), desc, amount, type };
+            transactions.push(transaction);
+            document.getElementById("desc").value = "";
+            document.getElementById("amount").value = "";
+            displayTransactions();
+            updateSummary();
+        }
+
+        function displayTransactions() {
+            const list = document.getElementById("list");
+            list.innerHTML = "";
+            transactions.map((t) => {
+                const div = document.createElement("div");
+                div.classList.add("item", t.type === "income" ? "income" : "expense");
+                div.innerHTML = `<span>${t.desc}</span><span>₹${t.amount}</span><button class="delete-btn" onclick="deleteTransaction(${t.id})">Delete</button>`;
+                list.appendChild(div);
+            });
+        }
+        // Delete transaction using filter()
+        function deleteTransaction(id) {
+            transactions = transactions.filter((t) => t.id !== id);
+            displayTransactions();
+            updateSummary();
+        }
+        // Calculate total using reduce()
+        function updateSummary() {
+            const totals = transactions.reduce(
+                (acc, t) => {
+                    if (t.type === "income") acc.income += t.amount;
+                    else acc.expense += t.amount;
+                    acc.total += t.amount; // total of all (income + expense)
+                    return acc;
+                },
+                { income: 0, expense: 0, total: 0 }
+            );
+            const balance = totals.income - totals.expense;
+            document.getElementById("totalIncome").textContent = `Income: ₹${totals.income}`;
+            document.getElementById("totalExpense").textContent = `Expense: ₹${totals.expense}`;
+            document.getElementById("totalAmount").textContent = `Total Transactions: ₹${totals.total}`;
+            document.getElementById("balance").textContent = `Balance: ₹${balance}`;
+        }
+    </script>
+</body>
+
+</html>
