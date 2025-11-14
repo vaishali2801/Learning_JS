@@ -4,11 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM Manipulation</title>
+    <style>
+        .border {
+            width: 400px;
+            height: 400px;
+            margin: auto;
+            padding: 20px;
+            font-size: 20px;
+            border: 1px solid white;
+            border-radius: 30px;
+            background: linear-gradient(#FF8FB7, #E83C91, #EE6983);
+        }
+        .btn {
+            background: #2474ff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+            margin-left: 20px;
+            width: 90%;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
     <p id="para">this is id paragraph</p>
     <p id="para2" class="class">this is id paragraph</p>
-    <button id="btn">Log out</button>
+    <h2 id="pro" class="style1">this is query selector paragraph</h2>
+    <h3 id="pro2" class="style2">this is query selector paragraph</h3>
+    <p class="pro3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, ratione?</p>
+    <p class="pro4">Lorem ipsum dolor sit amet.</p>
+     <button id="btn3">Click Me</button>
+    <p id="message"></p>
+    <button id="btn2" class="btn" style="width:20%;margin: auto;"> click</button>
+    <hr />
+    <form id="form" class="border">
+        <h2 class="text" id="text" style="text-align:center;color: white;">login form</h2>
+        <label for="name" style="text-align: start;color: white;">Name :</label>
+        <input type="text" placeholder="Enter your Name" maxlength="20" id="name">
+        <label for="name" style="text-align: start;color: white;">Email :</label>
+        <input type="email" placeholder="Enter your Email" id="email">
+        <label for="name" style="text-align: start;color: white;">Password :</label>
+        <input type="password" placeholder="Enter your Password" id="password">
+        <button type="submit" class="btn">Submit</button>
+    </form>
     <script src="script.js"></script>
 </body>
+
 </html>
