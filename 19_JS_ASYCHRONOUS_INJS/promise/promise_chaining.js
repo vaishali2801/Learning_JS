@@ -21,7 +21,6 @@ const payment = new Promise((resolve, reject) => {
         reject("payment initiation failed");
     }
 });
-
 payment
     .then((checkPayment) => {
         return new Promise((resolve) => {
