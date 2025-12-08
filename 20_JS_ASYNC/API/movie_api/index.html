@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>movie api</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    background:#111;
+    color: white;
+}
+.container{
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+h1{
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+    color: #ffdd57;
+}
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+input{
+    width: 350px;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+button{
+    padding: 12px 18px;
+    background: #ffdd57;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+    font-size: 20px;
+}
+
+button:hover{
+    background: #e6c34d;
+    transform: scale(1.05);
+}
+
+/* Movie Grid */
+#content{
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+    padding-bottom: 60px;
+}
+</style>
+</head>
+<body>
+    <section>
+        <div class="container">
+            <h1>search movie</h1>
+            <form id="form">
+                <div class="box">
+                    <input id="input" type="text" placeholder="search movie..." required>
+                    <button id="btn" type="submit"><i class="ri-search-line"></i></button>
+                <br>
+                <br>
+                </div>
+            </form>
+            <div class="content" id="container"></div>
+        </div>
+    </section>
+    <script src="./script.js"></script>
+</body>
+</html>
