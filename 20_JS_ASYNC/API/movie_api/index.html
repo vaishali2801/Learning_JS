@@ -9,66 +9,83 @@
     rel="stylesheet"
 />
 <style>
-    *{
+ *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
+
 body{
-    background:#111;
+    background: #0d0d0d;
     color: white;
+    min-height: 100vh;
 }
+
 .container{
     max-width: 1200px;
     margin: auto;
-    padding: 20px;
+    padding: 40px 20px;
     text-align: center;
 }
+
 h1{
-    font-size: 2.5rem;
-    text-transform: uppercase;
+    font-size: 3rem;
     margin-bottom: 25px;
-    letter-spacing: 2px;
-    color: #ffdd57;
+    color: #ffca28;
+    text-shadow: 0px 0px 10px rgba(255, 202, 40, 0.7);
 }
+
 .box{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
 }
 input{
-    width: 350px;
-    padding: 12px;
-    border-radius: 8px;
-    border: none;
+    width: 370px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
     outline: none;
     font-size: 16px;
+    color: white;
+    transition: 0.3s;
 }
-
+input:focus{
+    border-color: #ffca28;
+    box-shadow: 0px 0px 10px rgba(255, 202, 40, .6);
+}
 button{
-    padding: 12px 18px;
-    background: #ffdd57;
+    padding: 14px 20px;
+    background: #ffca28;
     border: none;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 10px;
     transition: 0.3s;
-    font-size: 20px;
+    font-size: 22px;
 }
-
 button:hover{
-    background: #e6c34d;
+    background: #e6b122;
     transform: scale(1.05);
 }
-
-/* Movie Grid */
-#content{
-    margin-top: 30px;
+#container{
+    margin-top: 40px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 20px;
-    padding-bottom: 60px;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 25px;
+}
+#container img{
+    width: 100%;
+    border-radius: 12px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+    box-shadow: 0px 0px 15px rgba(255,255,255,0.1);
+}
+#container img:hover{
+    transform: scale(1.08);
+    box-shadow: 0px 0px 20px rgba(255, 202, 40, 0.7);
 }
 </style>
 </head>

@@ -1,6 +1,5 @@
 document.getElementById("form").addEventListener("submit",async(e)=>{
     e.preventDefault();
-
     try{
         const movieName = document.getElementById("input").value;
         const res = await fetch(`https://www.omdbapi.com/?apikey=thewdb&s=${movieName}`)
@@ -20,9 +19,6 @@ document.getElementById("form").addEventListener("submit",async(e)=>{
 
                 container.appendChild(image)
             })
-
-        
-
         }else{
             const container = document.getElementById("container");
             container.innerHTML = `<h1>no match found</h1>`;
@@ -31,6 +27,4 @@ document.getElementById("form").addEventListener("submit",async(e)=>{
     }catch(error){
         console.log(error);
     }
-
-
 })
