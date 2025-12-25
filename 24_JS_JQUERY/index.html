@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Selectors</title>
+
+    <!-- Attractive CSS Design -->
+    <style>
+        body{
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #1e1e2f, #2b2b45);
+            color: #fff;
+            text-align: center;
+            padding: 40px;
+        }
+
+        p{
+            background: #ffffff10;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 12px auto;
+            width: 60%;
+            transition: all 0.3s ease;
+        }
+
+        p:hover{
+            transform: scale(1.03);
+            background: #ffffff20;
+        }
+
+        div{
+            margin: 20px auto;
+            padding: 15px;
+            width: 65%;
+            border-radius: 10px;
+            background: #ffffff15;
+        }
+
+        a{
+            display: inline-block;
+            margin: 15px 0;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        ul{
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        ul li{
+            background: #ffffff15;
+            margin: 8px auto;
+            padding: 10px;
+            width: 40%;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        ul li:hover{
+            background: #ffffff30;
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Paragraph with ID selector -->
+    <p id="para-0">this is para 0</p>
+
+    <!-- Paragraph with class selector -->
+    <p class="para1">this is para 1</p>
+
+    <!-- Normal paragraph -->
+    <p>this is para 2</p>
+
+    <!-- Paragraph inside div -->
+    <div>
+        <p>this para using div</p>
+    </div>
+
+    <!-- Anchor tag -->
+    <a href="#">this is link for...</a>
+
+    <!-- Unordered list -->
+    <ul>
+        <li>this is first</li>
+        <li>this is second</li>
+        <li>this is third</li>
+    </ul>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+
+    <!-- External JS -->
+    <script src="script.js"></script>
+</body>
+</html>
