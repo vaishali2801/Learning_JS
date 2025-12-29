@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>effects</title>
+    <style>
+        /* Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #36bbc5ed, #60c5feed, #3d74aee1, #2c59cce1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Buttons common style */
+        button {
+            padding: 10px 18px;
+            margin: 6px;
+            border: none;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            color: #1e3a8a;
+            background: linear-gradient(135deg, #ffffff, #e0f2fe);
+            transition: all 0.3s ease;
+            box-shadow:
+                0 6px 14px rgba(0, 0, 0, 0.15),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.08);
+            transition: all 0.25s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #2563eb, #38bdf8);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        /* Special STOP button */
+        #stop {
+            background: linear-gradient(135deg, #ff512f, #dd2476);
+        }
+
+        /* Spacing between sections */
+        br+br {
+            margin-bottom: 10px;
+        }
+
+        /* Image styling */
+        #img {
+            margin-top: 25px;
+            height: 340px;
+            max-width: 90%;
+            border-radius: 18px;
+            border: 4px solid #fff;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            transition: transform 0.4s ease;
+        }
+
+        /* Image hover effect */
+        #img:hover {
+            transform: scale(1.03);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            button {
+                font-size: 13px;
+                padding: 8px 14px;
+            }
+
+            .row {
+                gap: 6px;
+            }
+
+            #img {
+                width: 260px;
+            }
+        }
+
+        /* Button container */
+        .controls {
+            width: 100%;
+            max-width: 420px;
+        }
+
+        /* Each row */
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="controls">
+        <div class="row">
+            <button id="hide">HIDE</button>
+            <button id="SHOW">SHOW</button>
+            <button id="TOGGLE">TOGGLE</button>
+        </div>
+
+        <div class="row">
+            <button id="fadeIn">fadeIn</button>
+            <button id="fadeOut">fadeOut</button>
+            <button id="FadeToggle">FadeToggle</button>
+        </div>
+
+        <div class="row">
+            <button id="slideUp">slideUp</button>
+            <button id="slideDown">slideDown</button>
+            <button id="slideToggle">slideToggle</button>
+        </div>
+        <div class="row">
+            <button id="stop">STOP</button>
+        </div>
+    </div>
+
+    <img src="./img.jpg" alt="image" id="img">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

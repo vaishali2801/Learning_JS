@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animate</title>
+    <style>
+        /* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Page Background */
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e46dffd6, #ae6bffde, #8c62ffe1, #ff61d8e1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main Card */
+.content{
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    padding: 40px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Button Design */
+#animate {
+    padding: 14px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #0077e6, #01de90d0);
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    margin-bottom: 25px;
+}
+
+#animate:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+#animate:active {
+    transform: scale(0.95);
+}
+
+/* Image Styling */
+#img {
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+    transition: filter 0.4s ease;
+}
+
+#img:hover {
+    filter: brightness(1.1);
+}
+
+    </style>
+</head>
+<body>
+    <div class="content">
+        <button id="animate">animation</button>
+    <br/>
+    <img src="pexels-alena-koval-233944-886521.jpg" alt="" id="img" style="height: 300px;opacity: 0.5;">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
