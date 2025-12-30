@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Page Layout */
+        body {
+            min-height: 100vh;
+            background: radial-gradient(circle at top, #1c3b46, #0f2027);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Counter Wrapper */
+        .counter-wrapper {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        /* Counter Card */
+        .counter-box {
+            padding: 60px 80px;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(18px);
+            box-shadow:
+                0 15px 30px rgba(0, 0, 0, 0.35),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: all 0.5s ease;
+        }
+
+        .counter-box:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow:
+                0 30px 60px rgba(0, 0, 0, 0.6),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Counter Number */
+        .counter {
+            font-size: 64px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, #ffd86f, #ff9f1c);
+        }
+
+        /* Label */
+        .label {
+            margin-top: 14px;
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.75);
+            text-transform: uppercase;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .counter-box {
+                padding: 40px 45px;
+            }
+
+            .counter {
+                font-size: 44px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Counters -->
+    <div class="counter-wrapper">
+
+        <div class="counter-box">
+            <h1 class="counter">123456</h1>
+            <div class="label">Total Users</div>
+        </div>
+
+        <div class="counter-box">
+            <h1 class="counter">98765</h1>
+            <div class="label">Downloads</div>
+        </div>
+
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Waypoints -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+
+    <!-- Counter-Up -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.counter').counterUp({
+                delay: 10,
+                time: 1000
+            });
+        });
+    </script>
+
+</body>
+
+</html>
