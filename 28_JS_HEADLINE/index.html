@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>headline</title>
+    <style>
+       * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ff8c00, #ff5f1f, #ffb347);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Glass effect container */
+h1 {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    padding: 25px 35px;
+    border-radius: 16px;
+    font-size: 32px;
+    color: #fff;
+    text-align: center;
+    line-height: 1.4;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Typed text styling */
+#text {
+    font-weight: 700;
+    color: white;
+}
+
+/* Cursor animation */
+.typed-cursor {
+    font-size: 34px;
+    color: #fff;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 22px;
+        padding: 18px 22px;
+    }
+
+    .typed-cursor {
+        font-size: 24px;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+
+    <h1>my name is vaishali and I am <span id="text"></span></h1>
+    
+    <!-- typed js cdn  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.js"
+        integrity="sha512-tQQXRDB2wEmuJGtFrmmoFYzNTq8StA1XJrfO0OQbbTxd9G0CwaTDL6/C1y805IlvBVrMwOqob1kf6r/2U5XXVg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- js  -->
+    <script>
+        var typed = new Typed('#text', {
+            strings: ['Full stack developer', 'Mern stack developer', 'Web developer'],
+            cursorChar: '|',
+            showCursor: true,
+            typeSpeed:80,
+            startDelay: 70,
+            backDelay: 70,
+        });
+
+    </script>
+</body>
+
+</html>
