@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>validate</title>
+    <style>
+        label.error {
+            color: rgb(255, 37, 37);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px;
+            font-family: Arial, Helvetica, sans-serif
+        }
+
+        .container {
+            height: 100vh;
+            max-width: 1330px;
+            margin: auto;
+            /* padding-top: 90px; */
+        }
+
+        body {
+            overflow: hidden;
+            background: linear-gradient(rgba(19, 19, 19, 0.287),
+                    rgba(0, 0, 0, 0.26)),
+                url(./img.jpg) center/cover no-repeat fixed;
+            display: flex;
+            margin-top: 110px;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+        }
+
+        #form {
+            width: 400px;
+            border-radius: 30px;
+            backdrop-filter: blur(20px);
+            background-color: #bdbdbd5f;
+            padding: 40px;
+            margin: auto;
+        }
+
+        .btn {
+            background: #2474ff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+            width: 100%;
+            background: linear-gradient(130deg, #ff750c, #C59E25, #d46a00e2);
+        }
+
+        input {
+            padding: 10px;
+            width: 100%;
+            height: 38px;
+            color: black;
+            border-radius: 13px;
+            padding: 15px;
+            border: none;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            font-size: 16px;
+            background-color: #ffffffdb;
+        }
+
+        h1 {
+            background: linear-gradient(to right, #0D4715, #316100, #467B00);
+            color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
+
+        label {
+            font-size: 18px;
+            color: white;
+        }
+
+        .text {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form id="form">
+            <div class="text">
+                <h1 class="text-trans">LOGIN FORM</h1>
+            </div>
+            <br />
+            <label for="" id="name">Name:</label>
+            <input type="text" name="name" placeholder="Enter your name">
+            <br />
+            <label for="" id="email">Email:</label>
+            <input type="email" name="email" placeholder="Enter your email">
+            <br />
+            <label for="" id="password">password:</label>
+            <input type="password" name="password" placeholder="Enter your password">
+            <br />
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <label style="display: flex; align-items: center; gap: 8px;">
+                    <input type="checkbox">RememberMe
+                </label>
+                <a href="#" style="transform: translateX(-40px);color: white;">Forgot Password?</a>
+            </div>
+            <br />
+            <button class="btn" type="submit" id="btn">Submit</button>
+        </form>
+    </div>
+
+    <!-- jquery CDN  -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- jquery validate CDN  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.21.0/jquery.validate.min.js"
+        integrity="sha512-KFHXdr2oObHKI9w4Hv1XPKc898mE4kgYx58oqsc/JqqdLMDI4YjOLzom+EMlW8HFUd0QfjfAvxSL6sEq/a42fQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- js link  -->
+    <script src="script.js"></script>
+</body>
+
+</html>
