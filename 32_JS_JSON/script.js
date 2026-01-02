@@ -92,19 +92,39 @@ const products = [
     }
 ];
 
-const productList = document.getElementById("product-list")
+const productList = document.getElementById("product-list");
 
+// LOAD CART FROM LOCAL STORAGE
+let cardItems = JSON.parse(localStorage.getItem("cardData")) || [];
 products.forEach((p) => {
     productList.innerHTML += `
-        <div class="col-md-4">
+        <div class="col-md-4 mb-4">
             <div class="card card-product">
-                    <img src="${p.image}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">${p.name}</h5>
-                        <p class="card-text">price : ₹${p.price}</p>
-                        <a href="#" class="btn btn-success">add to card</a>
-                    </div>
+                <img src="${p.image}" class="card-img-top" alt="${p.name}">
+                <div class="card-body">
+                    <h5 class="card-title">${p.name}</h5>
+                    <p class="card-text">Price : ₹${p.price}</p>
+                    <button class="btn btn-success" onclick="addItem(${p.id})">
+                        Add to Cart
+                    </button>
+                </div>
             </div>
         </div>
-    `
-})
+    `;
+});
+function addItem(id) {
+    const item = cardItems.find(prod => prod.id === id);
+
+    if (item) {
+        item.qty++;
+    } else {
+        const product = products.find(prod => prod.id === id);
+        cardItems.push({ ...product, qty: 1 });
+    }
+
+    // SAVE TO LOCAL STORAGE
+    localStorage.setItem("cardData", JSON.stringify(cardItems));
+
+    console.log(cardItems);
+    alert("Item added to cart");
+}
