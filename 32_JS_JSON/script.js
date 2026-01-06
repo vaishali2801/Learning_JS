@@ -95,7 +95,11 @@ const products = [
 const productList = document.getElementById("product-list");
 
 // LOAD CART FROM LOCAL STORAGE
-let cardItems = JSON.parse(localStorage.getItem("cardData")) || [];
+//parse - string to object convert
+//stringify- object to string convert
+let cartItems = JSON.parse(localStorage.getItem("cartData")) || [];
+
+// show all card
 products.forEach((p) => {
     productList.innerHTML += `
         <div class="col-md-4 mb-4">
@@ -112,19 +116,101 @@ products.forEach((p) => {
         </div>
     `;
 });
+
+// add to card function
 function addItem(id) {
-    const item = cardItems.find(prod => prod.id === id);
+    const item = cartItems.find(prod => prod.id === id);
 
     if (item) {
         item.qty++;
     } else {
         const product = products.find(prod => prod.id === id);
-        cardItems.push({ ...product, qty: 1 });
+        cartItems.push({ ...product, qty: 1 });
+    }
+    localStorage.setItem("cardData", JSON.stringify(cartItems));
+    alert("Item added to cart");
+}
+
+//show modal
+const showCart = () => {
+    const productList = document.getElementById("myModal");
+    const modal = new bootstrap.Modal(productList)
+    modal.show();
+    productData();
+}
+
+//data show
+const productData = () => {
+    const productData = document.getElementById("product-data");
+    productData.innerHTML = "";
+
+    cartItems.forEach((p) => {
+        productData.innerHTML += `<tr>
+    <td>${p.name}</td>
+    <td>${p.price}</td>
+    <td>
+    <button class="btn btn-info btn-sm" onclick="decreaseQTY(${p.id})">-</button>
+    <span class="mx-2 fw-bold">${p.qty}</span>
+    <button class="btn btn-info btn-sm" onclick="increaseQTY(${p.id})">+</button>
+    
+    </td>
+    <td> ₹ ${p.qty * p.price}</td>
+    <td><button class="btn btn-sm btn-danger" onclick="removeItem(${p.id})">Remove</button></td>
+    </tr>`;
+    });
+}
+//localstorage function
+const updateLocalStorage = () => {
+    localStorage.setItem("cartData", JSON.stringify(cartItems));
+    productData();
+    GrandTotal();
+
+}
+//decrease quantity function
+
+const decreaseQTY = (id) => {
+    const item = cartItems.find((prod) => prod.id === id);
+
+    if (item) {
+        item.qty--;
+    }
+    if (item.qty === 0) {
+        cartItems = cartItems.filter(prod => prod.id !== id);
     }
 
-    // SAVE TO LOCAL STORAGE
-    localStorage.setItem("cardData", JSON.stringify(cardItems));
+    updateLocalStorage();
+}
+//increase quantity function
+const increaseQTY = (id) => {
+    const item = cartItems.find((prod) => prod.id === id);
 
-    console.log(cardItems);
-    alert("Item added to cart");
+    if (item) {
+        item.qty++;
+    }
+    updateLocalStorage();
+}
+//remove item
+const removeItem = (id) => {
+    cartItems = cartItems.filter(prod => prod.id !== id);
+    updateLocalStorage();
+};
+//total
+const GrandTotal = () => {
+    const totalAmount = cartItems.reduce((acc, curr) => {
+        return (acc += curr.price * curr.qty);
+    }, 0);
+    document.getElementById("total").innerHTML =
+        `<h5>Total:₹${totalAmount}</h5>`;
+}
+//checkout function
+const checkout = () =>{
+    if (cartItems.length === 0) {
+        alert("Your cart is empty. Please add items before checkout.");
+        return;
+    }
+    cartItems = [];
+    localStorage.removeItem("cartData");
+
+    productData();
+    GrandTotal();
 }
